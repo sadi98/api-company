@@ -17,11 +17,12 @@ class CreateMotorCyclesTable extends Migration
             $table->id();
             $table->foreignId('merk_id')->constrained('merks')->cascadeOnDelete();
             $table->string('name');
-            $table->string('co');
+            $table->string('color');
             $table->integer('cc');
+            $table->enum('status', ['New', 'Second']);
             $table->bigInteger('km');
-            $table->decimal('price');
-            $table->text('body');
+            $table->decimal('price', 11, 2);
+            $table->text('body')->nullable();
             $table->timestamps();
         });
     }
